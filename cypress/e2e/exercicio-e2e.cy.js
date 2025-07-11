@@ -44,7 +44,7 @@ describe('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         cy.get('[class="button checkout wc-forward"]').eq(1).should('exist').click()
         
         cy.checkout(faker.location.street(), faker.location.city(), '55813529', '81994567832')
-        cy.wait(1000)
+        cy.get('#place_order', { timeout: 10000 }).click(); // espera até 10 segundos
         cy.get('.woocommerce-column__title').should('exist')
     });
     
